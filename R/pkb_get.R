@@ -159,7 +159,9 @@ pkb_args_to_query <- function(...,
   # entity, quality, taxon, study etc
   argList <- list(...)
   # remove parameters not meant for us
-  argList <- argList[! startsWith(names(argList), ".")]
+  if (length(argList) > 0)
+    argList <- argList[! startsWith(names(argList), ".")]
+  # resolve parameters that aren't NA to a IRI
   queryseq <- c(queryseq,
                 sapply(names(argList[!is.na(argList)]),
                        function(x) {
