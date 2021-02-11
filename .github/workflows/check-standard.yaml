@@ -7,6 +7,11 @@ on:
       - master
   pull_request:
 
+on:
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '0 12 * * THU'
+
 name: R-CMD-check
 
 jobs:
