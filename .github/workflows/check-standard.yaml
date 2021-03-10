@@ -23,4 +23,5 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Check
-        shell: env
+        run: env
+        shell: bash {0}
